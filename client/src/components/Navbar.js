@@ -32,12 +32,12 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-content">
           <Link to="/" className="navbar-brand">
-            <img src={logo} alt="Smart LINE Logo" className="logo" />
+            <img src={logo} alt="Smart Line Logo" className="logo" />
             <h1>
               <span className="brand-smart">Smart</span>
               {' '}
               <span className="brand-l">L</span>
-              <span className="brand-ine">INE</span>
+              <span className="brand-ine">ine</span>
             </h1>
           </Link>
           <ul className="navbar-menu">

@@ -11,7 +11,7 @@ const Home = () => {
       <div className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Welcome to Smart LINE</h1>
+            <h1 className="hero-title">Welcome to Smart Line</h1>
             <p className="hero-description">
               Your Premium Online Fashion Destination - Discover the Latest Trends in Clothing
             </p>
@@ -30,7 +30,7 @@ const Home = () => {
 
       <div className="features-section">
         <div className="container">
-          <h2> Smart LINE වෙත සාදයෙන් පිලිගන්නවා</h2>
+          <h2> Smart Line වෙත සාදයෙන් පිලිගන්නවා</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">

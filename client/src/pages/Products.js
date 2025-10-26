@@ -80,7 +80,7 @@ const sampleProducts = [
     name: 'Small Stitch T-Shirt',
     category: 'T-Shirts',
     description: 'Cute small Stitch character t-shirt in colorful options',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'smallstitch',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -172,7 +172,7 @@ const sampleProducts = [
     name: 'Tweety T-Shirt',
     category: 'T-Shirts',
     description: 'Cute Tweety character t-shirt available in multiple colors',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'tweety',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -246,7 +246,7 @@ const sampleProducts = [
     name: 'Daisy Duck T-Shirt',
     category: 'T-Shirts',
     description: 'Adorable Daisy Duck character t-shirt in vibrant colors',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'daisy',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -296,7 +296,7 @@ const sampleProducts = [
     name: 'Kittens T-Shirt',
     category: 'T-Shirts',
     description: 'Cute kittens character t-shirt in lovely colors',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'kittens',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -358,7 +358,7 @@ const sampleProducts = [
     name: 'Panda T-Shirt',
     category: 'T-Shirts',
     description: 'Adorable panda character t-shirt in classic colors',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'panda',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -396,7 +396,7 @@ const sampleProducts = [
     name: 'Stitch T-Shirt',
     category: 'T-Shirts',
     description: 'Adorable Stitch character t-shirt in vibrant color options',
-    price: 999.90,
+    price: 1290.00,
     stock: 50,
     design: 'stitch',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -672,14 +672,16 @@ const Products = () => {
       <div className="container">
         <h1 className="page-title">Our Products</h1>
         
-        {/* Size Chart Button */}
-        <button 
-          className="size-chart-button" 
-          onClick={() => setShowSizeChart(true)}
-          title="View Size Chart"
-        >
-          📏 Size Guide
-        </button>
+        {/* Size Chart Button - Centered */}
+        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+          <button 
+            className="size-chart-button" 
+            onClick={() => setShowSizeChart(true)}
+            title="View Size Chart"
+          >
+            📏 Size Guide
+          </button>
+        </div>
 
         {/* Size Chart Modal */}
         {showSizeChart && (
