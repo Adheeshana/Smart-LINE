@@ -1,0 +1,222 @@
+.navbar {
+  background: white;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-brand:hover {
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateY(-2px);
+}
+
+.navbar-brand .logo-placeholder {
+  height: 55px;
+  width: 55px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.navbar-brand:hover .logo-placeholder {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.navbar-brand .logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.navbar-brand:hover .logo {
+  transform: scale(1.08);
+}
+
+.navbar-brand h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.brand-smart {
+  color: #001f3f;
+  font-weight: 900;
+}
+
+.brand-l {
+  color: #ff0000;
+  font-weight: 900;
+}
+
+.brand-ine {
+  color: #808080;
+  font-weight: 700;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-menu li a {
+  color: #555;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid transparent;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.navbar-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #001f3f 0%, #ff0000 50%, #a0a0a0 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.navbar-menu li a:hover::after {
+  width: 80%;
+}
+
+.navbar-menu li a:hover {
+  color: #001f3f;
+  background: linear-gradient(135deg, rgba(0, 31, 63, 0.05) 0%, rgba(255, 0, 0, 0.05) 100%);
+  border-color: rgba(0, 31, 63, 0.2);
+  transform: translateY(-2px);
+}
+
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 4px 10px rgba(255, 68, 68, 0.5);
+  border: 2px solid white;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 1.5rem 0;
+  }
+
+  .navbar-brand h1 {
+    font-size: 26px;
+  }
+
+  .navbar-brand .logo {
+    height: 45px;
+  }
+
+  .navbar-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .navbar-menu li a {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    padding: 6px 12px;
+  }
+
+  .navbar-brand h1 {
+    font-size: 22px;
+  }
+
+  .navbar-brand .logo {
+    height: 40px;
+  }
+
+  .navbar-menu li a {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
