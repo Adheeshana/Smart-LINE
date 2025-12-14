@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import Snowfall from '../components/Snowfall';
 import './Products.css';
 
 // Import Tweety design images for all colors
@@ -669,6 +670,7 @@ const Products = () => {
 
   return (
     <div className="products-page">
+      <Snowfall />
       <div className="container">
         <h1 className="page-title">Our Products</h1>
         

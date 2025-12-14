@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -10,6 +11,10 @@ import Cart from './pages/Cart';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminProducts from './pages/AdminProducts';
 import { CartProvider } from './context/CartContext';
+
+// Configure axios with backend URL
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+axios.defaults.baseURL = API_URL;
 
 function App() {
   return (
