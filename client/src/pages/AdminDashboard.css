@@ -224,6 +224,126 @@
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+/* Filter Section with Search */
+.filter-section {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+  padding: 0 30px;
+}
+
+.search-filter-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.search-box {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.search-box label {
+  display: block;
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #001f3f;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.clear-search {
+  position: absolute;
+  right: 12px;
+  top: 37px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.clear-search:hover {
+  background: #cc0000;
+  transform: scale(1.1);
+}
+
+.status-filter {
+  min-width: 200px;
+}
+
+.status-filter label {
+  display: block;
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.status-filter select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.status-filter select:hover {
+  border-color: #001f3f;
+}
+
+.status-filter select:focus {
+  outline: none;
+  border-color: #001f3f;
+  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+}
+
 /* Orders Table */
 .orders-section {
   max-width: 1400px;

@@ -9,6 +9,7 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [filterStatus, setFilterStatus] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     // Check if admin is logged in
@@ -63,9 +64,23 @@ const AdminDashboard = () => {
     }
   };
 
-  const filteredOrders = filterStatus === 'all' 
-    ? orders 
-    : orders.filter(order => order.status === filterStatus);
+  const filteredOrders = orders
+    .filter(order => filterStatus === 'all' ? true : order.status === filterStatus)
+    .filter(order => {
+      if (!searchQuery.trim()) return true;
+      
+      const query = searchQuery.toLowerCase();
+      const customerInfo = order.customerInfo;
+      
+      return (
+        customerInfo.fullName?.toLowerCase().includes(query) ||
+        customerInfo.phone?.toLowerCase().includes(query) ||
+        customerInfo.address?.toLowerCase().includes(query) ||
+        customerInfo.city?.toLowerCase().includes(query) ||
+        customerInfo.postalCode?.toLowerCase().includes(query) ||
+        order.orderNumber?.toLowerCase().includes(query)
+      );
+    });
 
   if (loading) {
     return <div className="loading">Loading orders...</div>;
@@ -124,18 +139,41 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Filter */}
+        {/* Filter and Search */}
         <div className="filter-section">
-          <label>Filter by Status:</label>
-          <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
-            <option value="all">All Orders</option>
-            <option value="pending">Pending</option>
-            <option value="processing">Processing</option>
-            <option value="completed">Completed</option>
-            <option value="delivering">Delivering</option>
-            <option value="delivered">Delivered</option>
-            <option value="cancelled">Cancelled</option>
-          </select>
+          <div className="search-filter-container">
+            <div className="search-box">
+              <label>Search Orders:</label>
+              <input
+                type="text"
+                placeholder="Search by name, phone, address, city, postal code..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+              {searchQuery && (
+                <button 
+                  className="clear-search"
+                  onClick={() => setSearchQuery('')}
+                  title="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+            <div className="status-filter">
+              <label>Filter by Status:</label>
+              <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+                <option value="all">All Orders</option>
+                <option value="pending">Pending</option>
+                <option value="processing">Processing</option>
+                <option value="completed">Completed</option>
+                <option value="delivering">Delivering</option>
+                <option value="delivered">Delivered</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         {/* Orders Table */}

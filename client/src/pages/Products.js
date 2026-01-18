@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import Snowfall from '../components/Snowfall';
 import './Products.css';
+
+// Get API URL from environment or default to localhost
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 // Import Tweety design images for all colors
 import tweetyBlack from '../assets/images/products/Tweety-black.jpeg';
@@ -515,6 +517,8 @@ const Products = () => {
       if (response.data && response.data.length > 0) {
         // Merge database products with local images
         const mergedProducts = response.data.map(dbProduct => {
+          console.log('Processing product:', dbProduct.name, 'Image:', dbProduct.image);
+          
           // Find matching sample product by design name
           const sampleProduct = sampleProducts.find(
             sp => sp.design === dbProduct.design || 
@@ -527,6 +531,9 @@ const Products = () => {
               const sampleColor = sampleProduct.colors?.find(
                 sc => sc.value === dbColor.value || sc.name === dbColor.name
               );
+              
+              console.log('Color:', dbColor.name, 'imageUrl:', dbColor.imageUrl);
+              
               return {
                 ...dbColor,
                 image: sampleColor?.image || null,
@@ -541,9 +548,12 @@ const Products = () => {
             };
           }
           
+          // For products without matching sample, return as is
+          console.log('No sample match for:', dbProduct.name, 'Using DB image:', dbProduct.image);
           return dbProduct;
         });
         
+        console.log('Merged products:', mergedProducts);
         setProducts(mergedProducts);
       } else {
         // If API returns empty, use sample products
@@ -571,7 +581,7 @@ const Products = () => {
       
       // If color has imageUrl from backend, use that
       if (colorOption && colorOption.imageUrl) {
-        return `http://localhost:5000${colorOption.imageUrl}`;
+        return `${API_URL}${colorOption.imageUrl}`;
       }
       
       // Otherwise, try to use local imported image
@@ -581,7 +591,7 @@ const Products = () => {
       
       // Fallback to first color's image
       if (product.colors[0].imageUrl) {
-        return `http://localhost:5000${product.colors[0].imageUrl}`;
+        return `${API_URL}${product.colors[0].imageUrl}`;
       }
       if (product.colors[0].image) {
         return product.colors[0].image;
@@ -596,8 +606,10 @@ const Products = () => {
       }
       // If it's a path, prepend the backend URL
       if (product.image.startsWith('/')) {
-        return `http://localhost:5000${product.image}`;
+        return `${API_URL}${product.image}`;
       }
+      // If it's just an imported image, return as is
+      return product.image;
     }
     
     return 'https://via.placeholder.com/300';
@@ -670,7 +682,6 @@ const Products = () => {
 
   return (
     <div className="products-page">
-      <Snowfall />
       <div className="container">
         <h1 className="page-title">Our Products</h1>
         
@@ -706,7 +717,11 @@ const Products = () => {
                 <div className="product-image">
                   <img 
                     src={getProductImage(product) || 'https://via.placeholder.com/300'} 
-                    alt={product.name} 
+                    alt={product.name}
+                    onError={(e) => {
+                      console.error('Image failed to load for product:', product.name, 'URL:', e.target.src);
+                      e.target.src = 'https://via.placeholder.com/300?text=Image+Not+Found';
+                    }}
                   />
                 </div>
                 <div className="product-info">

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css';
-import Snowfall from '../components/Snowfall';
 import qualityImg from '../assets/images/quality.png';
 import deliveryImg from '../assets/images/delivery.png';
 import paymentImg from '../assets/images/payment.png';
@@ -9,7 +8,6 @@ import returnsImg from '../assets/images/return.png';
 const Home = () => {
   return (
     <div className="home">
-      <Snowfall />
       <div className="hero-section">
         <div className="container">
           <div className="hero-content">
