@@ -3,10 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import './Products.css';
-
-// Get API URL from environment or default to localhost
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-
 // Import Tweety design images for all colors
 import tweetyBlack from '../assets/images/products/Tweety-black.jpeg';
 import tweetyBlue from '../assets/images/products/Tweety-blue.jpeg';
@@ -18,7 +14,6 @@ import tweetyPink from '../assets/images/products/Tweety-pink.jpeg';
 import tweetyRed from '../assets/images/products/Tweety-red.jpeg';
 import tweetyWhite from '../assets/images/products/Tweety-white.jpeg';
 import tweetyYellow from '../assets/images/products/Tweety-yellow.jpeg';
-
 // Import Daisy Duck design images for all colors
 import daisyBlue from '../assets/images/products/Daisy Duck-blue.jpeg';
 import daisyLightPurple from '../assets/images/products/Daisy Duck-lightperple.jpeg';
@@ -26,7 +21,6 @@ import daisyLightPink from '../assets/images/products/Daisy Duck-lightpink.jpeg'
 import daisyPink from '../assets/images/products/Daisy Duck-pink.jpeg';
 import daisyRed from '../assets/images/products/Daisy Duck-red.jpeg';
 import daisyYellow from '../assets/images/products/Daisy Duck-yellow.jpeg';
-
 // Import Kittens design images for all colors
 import kittensLightBlueGreen from '../assets/images/products/kittens-lightblue&green.jpeg';
 import kittensLightBlue from '../assets/images/products/kittens-lightblue.jpeg';
@@ -36,13 +30,11 @@ import kittensPink from '../assets/images/products/kittens-pink.jpeg';
 import kittensRed from '../assets/images/products/kittens-red.jpeg';
 import kittensWhiteCream from '../assets/images/products/kittens-whitecream.jpeg';
 import kittensYellow from '../assets/images/products/kittens-yellow.jpeg';
-
 // Import Panda design images for all colors
 import pandaBlack from '../assets/images/products/panda-black.jpeg';
 import pandaBlue from '../assets/images/products/panda-blue.jpeg';
 import pandaRed from '../assets/images/products/panda-red.jpeg';
 import pandaYellow from '../assets/images/products/panda-yellow.jpeg';
-
 // Import Stitch design images for all colors
 import stitchBabyRose from '../assets/images/products/stitch-babyrose.jpeg';
 import stitchBlack from '../assets/images/products/stitch-black.jpeg';
@@ -57,7 +49,6 @@ import stitchPink from '../assets/images/products/stitch-pink.jpeg';
 import stitchRed from '../assets/images/products/stitch-red.jpeg';
 import stitchWhite from '../assets/images/products/stitch-white.jpeg';
 import stitchYellow from '../assets/images/products/stitch-yellow.jpeg';
-
 // Import Small Stitch design images for all colors
 import smallStitchBabyRoseWhite from '../assets/images/products/small stitch-babyrosewhite.jpeg';
 import smallStitchBlack from '../assets/images/products/small stitch-black.jpeg';
@@ -72,6 +63,9 @@ import smallStitchPink from '../assets/images/products/small stitch-pink.jpeg';
 import smallStitchRed from '../assets/images/products/small stitch-red.jpeg';
 import smallStitchWhite from '../assets/images/products/small stitch-white.jpeg';
 import smallStitchYellow from '../assets/images/products/small stitch-yellow.jpeg';
+
+// Get API URL from environment or default to localhost
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 // Import size chart
 import sizeChart from '../assets/images/sizes.png';
